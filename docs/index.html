@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Land Deal Lab</title>
+<style>
+:root{--paper:#f3ecdb;--card:#fbf7ea;--ink:#18232e;--dim:#5d6b73;--line:#cfc4a6;--blue:#1d4e6b;--terra:#c2542d;--brass:#b08a2e;--green:#2f7d58;--red:#b3261e;
+--serif:Georgia,"Noto Naskh Arabic","Amiri","Times New Roman",serif;--sans:"Segoe UI",Tahoma,"Noto Sans Arabic",Arial,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:var(--sans);line-height:1.5;background:
+ radial-gradient(circle at 15% 8%,transparent 0 120px,rgba(29,78,107,.06) 121px 122px,transparent 123px 170px,rgba(29,78,107,.05) 171px 172px,transparent 173px),
+ radial-gradient(circle at 88% 70%,transparent 0 160px,rgba(29,78,107,.05) 161px 162px,transparent 163px 230px,rgba(29,78,107,.04) 231px 232px,transparent 233px),
+ repeating-linear-gradient(0deg,rgba(29,78,107,.045) 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,rgba(29,78,107,.045) 0 1px,transparent 1px 28px),var(--paper)}
+.wrap{max-width:1200px;margin:0 auto;padding:18px 16px 60px}
+header{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start;border-bottom:3px double var(--ink);padding-bottom:12px}
+.kick{font:600 .7rem var(--mono);letter-spacing:.2em;color:var(--terra);text-transform:uppercase}
+h1{font:700 1.7rem var(--serif);margin:2px 0}
+.sub{color:var(--dim);max-width:68ch;margin:.2rem 0 0}
+button{font:600 .88rem var(--sans);cursor:pointer;border:1.5px solid var(--ink);background:var(--card);padding:7px 13px;border-radius:4px;color:var(--ink)}
+button:hover{background:#fff}button.primary{background:var(--blue);color:#fff}
+.warn{margin:12px 0;padding:9px 12px;border:1.5px dashed var(--brass);background:#fff6dc;border-radius:4px;font-size:.84rem}
+.layout>*{min-width:0}
+.f input,.f select{min-width:0;width:100%}
+.layout{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
+@media(max-width:920px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border:1.5px solid var(--ink);border-radius:6px;padding:12px 14px;margin-bottom:16px}
+.card h2{font:700 1.05rem var(--serif);margin:0 0 4px;display:flex;align-items:center;gap:8px}
+.card h2:before{content:"";width:10px;height:10px;background:var(--terra);transform:rotate(45deg)}
+.hint{color:var(--dim);font-size:.82rem;margin:0 0 8px}
+.grp{font:700 .72rem var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:12px 0 2px;border-bottom:1px solid var(--line)}
+.f{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:8px;align-items:center;margin:5px 0;font-size:.86rem}
+input,select{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:4px;padding:5px 7px;font:.86rem var(--mono);color:var(--ink);direction:ltr;text-align:right}
+select{text-align:start}
+input:focus,select:focus{outline:2px solid var(--brass)}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th,td{padding:6px 7px;border-bottom:1px solid var(--line);text-align:start;vertical-align:middle}
+th{font:700 .72rem var(--mono);color:var(--dim);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+td.n,th.n{font-family:var(--mono);direction:ltr;text-align:end;white-space:nowrap}
+.tw{overflow-x:auto}
+.chip{display:inline-block;font:700 .72rem var(--sans);padding:2px 8px;border-radius:999px;border:1.5px solid var(--ink)}
+.good{background:#d7efe2;border-color:var(--green);color:#14513a}.bad{background:#f8dcd8;border-color:var(--red);color:#7c1a15}.mid{background:#f7ecc7;border-color:var(--brass);color:#6b5311}
+.big{font:700 2rem var(--mono);direction:ltr;display:inline-block}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0}
+.kv div{border:1.5px solid var(--line);border-radius:5px;padding:6px 9px;background:#fff}
+.kv b{display:block;font:700 1.05rem var(--mono);direction:ltr;text-align:start}.kv span{font-size:.74rem;color:var(--dim)}
+svg{width:100%;height:auto;display:block;direction:ltr;unicode-bidi:isolate}svg text{font-family:var(--mono);font-size:11px;fill:var(--ink)}
+.zone{position:relative;height:30px;border:1.5px solid var(--ink);border-radius:4px;background:#fff;margin:6px 0 2px;direction:ltr}
+.zone i{position:absolute;top:0;bottom:0;background:rgba(47,125,88,.35);border-inline:2px solid var(--green)}
+.zone u{position:absolute;top:-4px;bottom:-4px;width:3px;background:var(--terra);text-decoration:none}
+.heat td{font-family:var(--mono);direction:ltr;text-align:center;color:#111;font-weight:700}
+.inl{display:flex;gap:10px;flex-wrap:wrap}.inl label{flex:1;min-width:130px;font-size:.82rem}.inl input{margin-top:3px}
+.err{color:var(--red);font-weight:700}
+footer{margin-top:20px;color:var(--dim);font-size:.8rem;border-top:1px solid var(--line);padding-top:10px}
+bdi{unicode-bidi:isolate}.po{display:none}
+@media print{body{background:#fff}.noprint,button{display:none!important}.po{display:block}.layout{display:block}.card{border-color:#999;break-inside:avoid}.tw{overflow:visible}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><div class="kick" id="kick"></div><h1 id="ttl"></h1><p class="sub" id="sub"></p></div>
+  <div class="noprint" style="display:flex;gap:8px"><button id="lang">EN</button><button class="primary" id="pdf"></button></div>
+</header>
+<div class="warn" id="warn"></div>
+<div class="layout">
+  <aside class="noprint"><div class="card"><h2 id="t_assume"></h2><p class="hint" id="h_assume"></p><div id="fields"></div><button id="reset" style="margin-top:10px"></button></div></aside>
+  <main id="out"></main>
+</div>
+<footer id="foot"></footer>
+</div>
+<script src="landlab.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

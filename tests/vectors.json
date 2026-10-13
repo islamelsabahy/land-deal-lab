@@ -1,0 +1,620 @@
+{
+ "analyze": [
+  {
+   "name": "defaults",
+   "out": {
+    "bua": 24000.0,
+    "feasible": true,
+    "gdv_today": 1338240000.0,
+    "headroom": 47813774.38840413,
+    "irr_annual": 0.41666883104055463,
+    "irr_at": 300000000.0,
+    "land_factor": 1.0,
+    "margin_at_ask": 0.24876567542873798,
+    "max_bid": 347813774.38840413,
+    "max_bid_per_m2": 17390.688719420206,
+    "pv_construction": 388544938.25808793,
+    "pv_land_allowed": 347813774.38840413,
+    "pv_overhead": 11163224.74418123,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {}
+  },
+  {
+   "name": "no-ask",
+   "out": {
+    "bua": 24000.0,
+    "feasible": true,
+    "gdv_today": 1338240000.0,
+    "headroom": null,
+    "irr_annual": 0.35957002732661847,
+    "irr_at": 347813774.38840413,
+    "land_factor": 1.0,
+    "margin_at_ask": null,
+    "max_bid": 347813774.38840413,
+    "max_bid_per_m2": 17390.688719420206,
+    "pv_construction": 388544938.25808793,
+    "pv_land_allowed": 347813774.38840413,
+    "pv_overhead": 11163224.74418123,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {
+    "asking_price": 0
+   }
+  },
+  {
+   "name": "installments",
+   "out": {
+    "bua": 24000.0,
+    "feasible": true,
+    "gdv_today": 1338240000.0,
+    "headroom": null,
+    "irr_annual": null,
+    "irr_at": 637802807.2764978,
+    "land_factor": 0.5453312064799697,
+    "margin_at_ask": null,
+    "max_bid": 637802807.2764978,
+    "max_bid_per_m2": 31890.140363824892,
+    "pv_construction": 388544938.25808793,
+    "pv_land_allowed": 347813774.38840413,
+    "pv_overhead": 11163224.74418123,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {
+    "asking_price": 0,
+    "land_down": 0.1,
+    "land_grace_years": 1,
+    "land_mode": "installments",
+    "land_per_year": 2,
+    "land_years": 5
+   }
+  },
+  {
+   "name": "monthly-land",
+   "out": {
+    "bua": 24000.0,
+    "feasible": true,
+    "gdv_today": 1338240000.0,
+    "headroom": 106831685.49296874,
+    "irr_annual": 0.5905178037118071,
+    "irr_at": 300000000.0,
+    "land_factor": 0.8549328550133674,
+    "margin_at_ask": 0.2931522401683801,
+    "max_bid": 406831685.49296874,
+    "max_bid_per_m2": 20341.584274648438,
+    "pv_construction": 388544938.25808793,
+    "pv_land_allowed": 347813774.38840413,
+    "pv_overhead": 11163224.74418123,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {
+    "land_mode": "installments",
+    "land_per_year": 12,
+    "land_years": 2
+   }
+  },
+  {
+   "name": "static-world",
+   "out": {
+    "bua": 24000.0,
+    "feasible": true,
+    "gdv_today": 1338240000.0,
+    "headroom": null,
+    "irr_annual": null,
+    "irr_at": 596524800.0,
+    "land_factor": 1.0,
+    "margin_at_ask": null,
+    "max_bid": 596524800.0,
+    "max_bid_per_m2": 29826.24,
+    "pv_construction": 433920000.00000006,
+    "pv_land_allowed": 596524800.0,
+    "pv_overhead": 0.0,
+    "pv_revenue": 1338240000.0,
+    "pv_sales_cost": 40147200.0,
+    "pv_target_profit": 267648000.0,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {
+    "asking_price": 0,
+    "build": 1,
+    "cost_infl": 0,
+    "discount": 0,
+    "launch": 0,
+    "overhead_m": 0,
+    "plan_down": 1,
+    "plan_months": 0,
+    "price_growth": 0,
+    "sales_months": 1,
+    "start_delay": 0
+   }
+  },
+  {
+   "name": "infeasible",
+   "out": {
+    "bua": 24000.0,
+    "feasible": false,
+    "gdv_today": 1338240000.0,
+    "headroom": -300000000.0,
+    "irr_annual": -0.5688560626189412,
+    "irr_at": 300000000.0,
+    "land_factor": 1.0,
+    "margin_at_ask": -1.5840306627202707,
+    "max_bid": 0.0,
+    "max_bid_per_m2": 0.0,
+    "pv_construction": 2185565277.7017446,
+    "pv_land_allowed": -1449206565.0552526,
+    "pv_overhead": 11163224.74418123,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "sellable": 19680.0,
+    "static_residual": -1410355200.0000005
+   },
+   "p": {
+    "cost_sqm": 90000
+   }
+  },
+  {
+   "name": "long-plan",
+   "out": {
+    "bua": 24000.0,
+    "feasible": false,
+    "gdv_today": 1338240000.0,
+    "headroom": -300000000.0,
+    "irr_annual": 0.1290051045974292,
+    "irr_at": 300000000.0,
+    "land_factor": 1.0,
+    "margin_at_ask": -0.40440187737152755,
+    "max_bid": 0.0,
+    "max_bid_per_m2": 0.0,
+    "pv_construction": 388544938.25808793,
+    "pv_land_allowed": -17891704.36310838,
+    "pv_overhead": 15787306.448827492,
+    "pv_revenue": 525960815.58446157,
+    "pv_sales_cost": 34328112.123762205,
+    "pv_target_profit": 105192163.11689232,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {
+    "plan_down": 0.05,
+    "plan_months": 120,
+    "sales_months": 60
+   }
+  },
+  {
+   "name": "negative-rates",
+   "out": {
+    "bua": 24000.0,
+    "feasible": true,
+    "gdv_today": 1338240000.0,
+    "headroom": 513994071.02894175,
+    "irr_annual": 0.5541360127156598,
+    "irr_at": 300000000.0,
+    "land_factor": 1.0,
+    "margin_at_ask": 0.5266717392884344,
+    "max_bid": 813994071.0289418,
+    "max_bid_per_m2": 40699.703551447084,
+    "pv_construction": 380863218.5942741,
+    "pv_land_allowed": 813994071.0289418,
+    "pv_overhead": 13746280.513496319,
+    "pv_revenue": 1573426804.9894314,
+    "pv_sales_cost": 50137873.85483297,
+    "pv_target_profit": 314685360.9978863,
+    "sellable": 19680.0,
+    "static_residual": 596524800.0
+   },
+   "p": {
+    "cost_infl": -0.02,
+    "discount": 0.05,
+    "price_growth": 0.2
+   }
+  }
+ ],
+ "bid_map": {
+  "costs": [
+   14000,
+   16000,
+   20000
+  ],
+  "out": {
+   "costs": [
+    14000,
+    16000,
+    20000
+   ],
+   "grid": [
+    [
+     12673.66429965182,
+     10245.258435538768,
+     5388.446707312673
+    ],
+    [
+     19819.094583533264,
+     17390.688719420206,
+     12533.876991194113
+    ],
+    [
+     26414.876384039188,
+     23986.470519926144,
+     19129.65879170004
+    ]
+   ],
+   "prices": [
+    55000,
+    68000,
+    80000
+   ]
+  },
+  "prices": [
+   55000,
+   68000,
+   80000
+  ]
+ },
+ "compare": {
+  "out": [
+   {
+    "asking_price": 500000000.0,
+    "land_area": 25000.0,
+    "name": "A",
+    "rank": 2,
+    "result": {
+     "bua": 30000.0,
+     "feasible": true,
+     "gdv_today": 1476000000.0,
+     "headroom": -194365118.51594055,
+     "irr_annual": 0.22765844613048225,
+     "irr_at": 500000000.0,
+     "land_factor": 1.0,
+     "margin_at_ask": 0.011370363429185513,
+     "max_bid": 305634881.48405945,
+     "max_bid_per_m2": 12225.395259362378,
+     "pv_construction": 468280373.944699,
+     "pv_land_allowed": 305634881.48405945,
+     "pv_overhead": 10873821.772538625,
+     "pv_revenue": 1030406048.855281,
+     "pv_sales_cost": 39535761.88292779,
+     "pv_target_profit": 206081209.7710562,
+     "sellable": 24600.0,
+     "static_residual": 594120000.0
+    }
+   },
+   {
+    "asking_price": 150000000.0,
+    "land_area": 10000.0,
+    "name": "B",
+    "rank": 1,
+    "result": {
+     "bua": 12000.0,
+     "feasible": true,
+     "gdv_today": 669120000.0,
+     "headroom": 7585076.980836391,
+     "irr_annual": 0.40548511553003275,
+     "irr_at": 150000000.0,
+     "land_factor": 1.0,
+     "margin_at_ask": 0.21623805244186542,
+     "max_bid": 157585076.9808364,
+     "max_bid_per_m2": 15758.507698083638,
+     "pv_construction": 187312149.5778796,
+     "pv_land_allowed": 157585076.9808364,
+     "pv_overhead": 10873821.772538625,
+     "pv_revenue": 467117408.81439406,
+     "pv_sales_cost": 17922878.720260598,
+     "pv_target_profit": 93423481.76287882,
+     "sellable": 9840.0,
+     "static_residual": 298262400.0
+    }
+   },
+   {
+    "asking_price": 0.0,
+    "land_area": 20000.0,
+    "name": "C",
+    "rank": 3,
+    "result": {
+     "bua": 30000.0,
+     "feasible": true,
+     "gdv_today": 1672800000.0,
+     "headroom": null,
+     "irr_annual": 0.38374896586756035,
+     "irr_at": 410273425.11089873,
+     "land_factor": 1.0,
+     "margin_at_ask": null,
+     "max_bid": 410273425.11089873,
+     "max_bid_per_m2": 20513.671255544938,
+     "pv_construction": 468280373.944699,
+     "pv_land_allowed": 410273425.11089873,
+     "pv_overhead": 10873821.772538625,
+     "pv_revenue": 1167793522.0359848,
+     "pv_sales_cost": 44807196.8006515,
+     "pv_target_profit": 233558704.40719697,
+     "sellable": 24600.0,
+     "static_residual": 745656000.0
+    }
+   }
+  ],
+  "parcels": [
+   {
+    "asking_price": 500000000.0,
+    "land_area": 25000,
+    "name": "A",
+    "price_sqm": 60000
+   },
+   {
+    "asking_price": 150000000.0,
+    "land_area": 10000,
+    "name": "B"
+   },
+   {
+    "asking_price": 0,
+    "far": 1.5,
+    "name": "C"
+   }
+  ],
+  "shared": {
+   "discount": 0.22
+  }
+ },
+ "jv": [
+  {
+   "barter": 0.3,
+   "haircut": 0.0,
+   "out": {
+    "barter": {
+     "barter": 0.3,
+     "dev_margin": 0.266017032876911,
+     "dev_profit": 260824407.36489284,
+     "owner_pv": 334528355.73494065
+    },
+    "barter_unit_value": 1115094519.116469,
+    "barter_zone": {
+     "agree": true,
+     "max": 0.3685959678514392,
+     "mid": 0.318815728770211,
+     "min": 0.2690354896889828
+    },
+    "cash": {
+     "dev_margin": 0.2487656754287381,
+     "dev_profit": 243909794.66510522,
+     "owner_pv": 300000000.0
+    },
+    "pv_costs": 399708163.00226915,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "share": {
+     "dev_margin": 0.25473822864698836,
+     "dev_profit": 249765764.25005364,
+     "owner_pv": 294144030.41505146,
+     "share": 0.3
+    },
+    "share_zone": {
+     "agree": true,
+     "max": 0.3547382286469884,
+     "mid": 0.3303553909326194,
+     "min": 0.3059725532182504
+    }
+   },
+   "owner": 300000000.0,
+   "share": 0.3
+  },
+  {
+   "barter": 0.1,
+   "haircut": 0.1,
+   "out": {
+    "barter": {
+     "barter": 0.1,
+     "dev_margin": 0.45849783005696265,
+     "dev_profit": 449547998.89836776,
+     "owner_pv": 100358506.72048222
+    },
+    "barter_unit_value": 1003585067.2048221,
+    "barter_zone": {
+     "agree": false,
+     "max": 0.3685959678514392,
+     "mid": null,
+     "min": 0.8967849656299426
+    },
+    "cash": {
+     "dev_margin": -0.3631794310077626,
+     "dev_profit": -356090205.3348948,
+     "owner_pv": 900000000.0
+    },
+    "pv_costs": 399708163.00226915,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "share": {
+     "dev_margin": 0.4547382286469885,
+     "dev_profit": 445861784.52675474,
+     "owner_pv": 98048010.1383505,
+     "share": 0.1
+    },
+    "share_zone": {
+     "agree": false,
+     "max": 0.3547382286469884,
+     "mid": null,
+     "min": 0.9179176596547511
+    }
+   },
+   "owner": 900000000.0,
+   "share": 0.1
+  },
+  {
+   "barter": 0.0,
+   "haircut": 0.0,
+   "out": {
+    "barter": {
+     "barter": 0.0,
+     "dev_margin": 0.5547382286469885,
+     "dev_profit": 543909794.6651052,
+     "owner_pv": 0.0
+    },
+    "barter_unit_value": 1115094519.116469,
+    "barter_zone": {
+     "agree": true,
+     "max": 0.3685959678514392,
+     "mid": 0.1842979839257196,
+     "min": 0.0
+    },
+    "cash": {
+     "dev_margin": 0.5547382286469885,
+     "dev_profit": 543909794.6651052,
+     "owner_pv": 0
+    },
+    "pv_costs": 399708163.00226915,
+    "pv_revenue": 980480101.383505,
+    "pv_sales_cost": 36862143.71613065,
+    "pv_target_profit": 196096020.276701,
+    "share": {
+     "dev_margin": 0.5547382286469885,
+     "dev_profit": 543909794.6651052,
+     "owner_pv": 0.0,
+     "share": 0.0
+    },
+    "share_zone": {
+     "agree": true,
+     "max": 0.3547382286469884,
+     "mid": 0.1773691143234942,
+     "min": 0.0
+    }
+   },
+   "owner": 0,
+   "share": 0.0
+  }
+ ],
+ "structures": {
+  "out": [
+   {
+    "land_factor": 1.0,
+    "max_bid": 347813774.38840413,
+    "max_bid_per_m2": 17390.688719420206,
+    "name": "cash"
+   },
+   {
+    "land_factor": 0.7451059513111782,
+    "max_bid": 466797740.34330165,
+    "max_bid_per_m2": 23339.88701716508,
+    "name": "20/3y"
+   },
+   {
+    "land_factor": 0.6430329030117659,
+    "max_bid": 540895765.6122303,
+    "max_bid_per_m2": 27044.788280611516,
+    "name": "10/5y semi"
+   }
+  ],
+  "structures": [
+   {
+    "name": "cash"
+   },
+   {
+    "land_mode": "installments",
+    "name": "20/3y"
+   },
+   {
+    "land_down": 0.1,
+    "land_mode": "installments",
+    "land_per_year": 2,
+    "land_years": 5,
+    "name": "10/5y semi"
+   }
+  ]
+ },
+ "tornado": {
+  "out": {
+   "base": 17390.688719420206,
+   "rows": [
+    {
+     "bid_high": 24865.908093326954,
+     "bid_low": 9915.469345513464,
+     "driver": "price_sqm",
+     "high_value": 81600.0,
+     "low_value": 54400.0,
+     "swing": 14950.43874781349
+    },
+    {
+     "bid_high": 24865.908093326925,
+     "bid_low": 9915.469345513464,
+     "driver": "efficiency",
+     "high_value": 0.9839999999999999,
+     "low_value": 0.656,
+     "swing": 14950.438747813461
+    },
+    {
+     "bid_high": 13505.23933683933,
+     "bid_low": 21276.13810200109,
+     "driver": "cost_sqm",
+     "high_value": 19200.0,
+     "low_value": 12800.0,
+     "swing": 7770.898765161759
+    },
+    {
+     "bid_high": 20980.45871074608,
+     "bid_low": 13800.918728094342,
+     "driver": "far",
+     "high_value": 1.44,
+     "low_value": 0.96,
+     "swing": 7179.539982651737
+    },
+    {
+     "bid_high": 15293.068315912693,
+     "bid_low": 19833.088898809685,
+     "driver": "discount",
+     "high_value": 0.24,
+     "low_value": 0.16000000000000003,
+     "swing": 4540.020582896992
+    },
+    {
+     "bid_high": 15429.728516653198,
+     "bid_low": 19351.648922187214,
+     "driver": "target_margin",
+     "high_value": 0.24,
+     "low_value": 0.16000000000000003,
+     "swing": 3921.920405534016
+    },
+    {
+     "bid_high": 15912.612208165001,
+     "bid_low": 18980.97526452573,
+     "driver": "plan_months",
+     "high_value": 43,
+     "low_value": 29,
+     "swing": 3068.3630563607276
+    },
+    {
+     "bid_high": 16835.190244571168,
+     "bid_low": 17935.166709949954,
+     "driver": "sales_months",
+     "high_value": 36,
+     "low_value": 24,
+     "swing": 1099.976465378786
+    },
+    {
+     "bid_high": 17609.097524695855,
+     "bid_low": 17150.046197830914,
+     "driver": "build",
+     "high_value": 34,
+     "low_value": 22,
+     "swing": 459.0513268649411
+    }
+   ]
+  }
+ }
+}
