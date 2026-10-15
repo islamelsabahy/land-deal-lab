@@ -24,3 +24,4 @@ jobs:
           node-version: "20"
       - run: python scripts/build_vectors.py --check
       - run: node tests/test_landlab.js
+      - run: node tests/test_xlsx.js

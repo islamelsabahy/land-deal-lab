@@ -52,6 +52,7 @@ svg{width:100%;height:auto;display:block;direction:ltr;unicode-bidi:isolate}svg 
 .heat td{font-family:var(--mono);direction:ltr;text-align:center;color:#111;font-weight:700}
 .inl{display:flex;gap:10px;flex-wrap:wrap}.inl label{flex:1;min-width:130px;font-size:.82rem}.inl input{margin-top:3px}
 .err{color:var(--red);font-weight:700}
+.btnlink{display:inline-block;font:600 .88rem var(--sans);border:1.5px solid var(--ink);background:var(--blue);color:#fff;padding:7px 13px;border-radius:4px;text-decoration:none}.btnlink:hover{background:#163c53}
 .lb{display:block;min-width:0}.lt{font-weight:600}
 .un{display:block;font:.7rem var(--mono);color:var(--blue);margin-top:1px}
 .q{font:700 .72rem var(--sans);width:18px;height:18px;line-height:14px;padding:0;margin-inline:5px;border-radius:50%;border:1.5px solid var(--blue);background:#fff;color:var(--blue);vertical-align:middle;cursor:help}
@@ -67,7 +68,7 @@ bdi{unicode-bidi:isolate}.po{display:none}
 <div class="wrap">
 <header>
   <div><div class="kick" id="kick"></div><h1 id="ttl"></h1><p class="sub" id="sub"></p></div>
-  <div class="noprint" style="display:flex;gap:8px"><button id="lang">EN</button><button class="primary" id="pdf"></button></div>
+  <div class="noprint" style="display:flex;gap:8px"><button id="lang">EN</button><button id="xls"></button><button class="primary" id="pdf"></button></div>
 </header>
 <div class="warn" id="warn"></div>
 <div class="layout">
@@ -77,6 +78,7 @@ bdi{unicode-bidi:isolate}.po{display:none}
 <footer id="foot"></footer>
 </div>
 <script src="landlab.js"></script>
+<script src="xlsx.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

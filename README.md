@@ -13,6 +13,10 @@ A residual land valuation workbench for real estate developers evaluating a sing
 - **Sensitivity**: tornado of max bid per m² and a sale price x build cost heatmap.
 - **PDF report** via print, with assumptions included.
 
+## Connected tools
+- **Excel (live formulas):** the "Excel" button downloads the selected parcel as a workbook (blue cells are inputs, everything recalculates in Excel). `node tests/test_xlsx.js` rebuilds it, recalculates it in LibreOffice when available, and compares with the engine.
+- **Cashflow Survival:** the "Send to Cashflow Survival" button opens [developer-cashflow-survival](https://github.com/islamelsabahy/developer-cashflow-survival) with this parcel's price, cost, timing, payment plan and upfront land payment filled in, to test whether the project survives its cash profile.
+
 ## Run
 ```bash
 python -m unittest discover -s tests      # Python engine

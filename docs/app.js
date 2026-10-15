@@ -10,7 +10,7 @@ var T = {
  sub: ["بيحسب أقصى سعر للأرض مع توقيت الإيراد والتكلفة (مش بس المعادلة الجامدة)، ويقارن قطع أراضي، ويوريك أثر التقسيط على سعر الأرض، ويقارن كاش مقابل حصة إيراد مقابل مقايضة وحدات مع صاحب الأرض.", "Computes the most you can pay for land with timing of revenue and cost (not just the textbook residual), ranks parcels, shows what instalments do to the headline price, and compares cash vs revenue share vs unit barter with the landowner."],
  warn: ["أداة تعليمية بأرقام وهمية، مش استشارة مالية أو قانونية أو تقييم عقاري. النموذج مبسط (بدون ضرائب أو تمويل بنكي أو تغيير تخطيط). راجع شروط التخصيص والعقد الفعلية.", "Educational tool with fictional numbers; not financial, legal or valuation advice. Simplified model (no taxes, bank debt or planning changes). Check the real allocation terms and contract."],
  assume: ["الافتراضات", "Assumptions"], hassume: ["كل الفلوس بالجنيه (M = مليون). المدد بالشهور إلا لو مكتوب سنة. النسب بتتكتب كنسبة مئوية. اضغط على (؟) جنب أي خانة لشرح بسيط.", "All money in EGP (M = million). Durations are in months unless it says years. Rates are percentages. Click (?) next to any field for a short explanation."],
- reset: ["رجّع الافتراضي", "Reset"], pdf: ["تقرير PDF", "PDF report"],
+ reset: ["رجّع الافتراضي", "Reset"], pdf: ["تقرير PDF", "PDF report"], xls: ["Excel بمعادلات حية", "Excel (live formulas)"],
  g_project: ["المشروع", "Project"], g_price: ["الأسعار والتكلفة", "Prices & costs"], g_time: ["التوقيت (بالشهور)", "Timing (in months)"],
  g_plan: ["خطة سداد العميل", "Customer payment plan"], g_fin: ["التمويل والمستهدف", "Finance & target"], g_land: ["شروط دفع الأرض (شروطك)", "Land payment (your terms)"],
  land_area: ["مساحة الأرض", "Land area"], far: ["معامل البناء (FAR)", "Floor-area ratio (FAR)"], efficiency: ["كفاءة المساحة البيعية", "Sellable efficiency"],
@@ -44,6 +44,7 @@ var T = {
  hm_t: ["خريطة: أقصى سعر/م² حسب سعر البيع وتكلفة البناء", "Map: max bid/m² by sale price and build cost"], hm_h: ["الأخضر = تقدر تدفع السعر المطلوب. الأحمر = لا.", "Green = you can afford the asking price. Red = you cannot."],
  rows: ["سعر البيع ↓ / تكلفة البناء → (جنيه/م²)", "Sale price ↓ / build cost → (EGP/m²)"],
  foot: ["مفتوح المصدر (MIT). محرك بايثون هو المرجع وهذه الصفحة نسخة JS مطابقة بالاختبارات. أرقام وهمية فقط.", "Open source (MIT). The Python engine is the reference; this page is a JS port verified by tests. Fictional numbers only."],
+ send: ["ابعت للمحاكاة ← Cashflow Survival", "Send to Cashflow Survival →"], send_note: ["الأرض المحسوبة: ", "Land used: "], send_ask: ["السعر المطلوب", "asking price"], send_max: ["أقصى سعر", "max bid"],
  bad: ["مدخلات غير صالحة: ", "Invalid input: "], prepared: ["افتراضات التقرير", "Report assumptions"]
 };
 var DRV = { price_sqm: ["سعر البيع", "Sale price"], cost_sqm: ["تكلفة البناء", "Build cost"], efficiency: ["كفاءة المساحة", "Efficiency"], far: ["معامل البناء", "FAR"], discount: ["معدل الخصم", "Discount rate"],
@@ -104,6 +105,7 @@ var HELP = {
  j_opv: ["قيمة اللي المالك هياخده بالقيمة الحالية بمعدل خصمك، بالمليون جنيه.", "What the owner receives, in present value at your discount rate, in EGP millions."],
  j_dp: ["ربحك بالقيمة الحالية بعد اللي هتديه للمالك، بالمليون جنيه.", "Your profit in present value after paying the owner, in EGP millions."],
  j_dm: ["ربحك كنسبة من الإيراد. لازم يوصل للهامش المستهدف.", "Your profit as a share of revenue. It should reach your target margin."],
+ send: ["بيفتح محاكي بقاء السيولة بأرقام القطعة المختارة (سعر المتر، التكلفة، المدد، دفعة الأرض الأولى) عشان تشوف هل المشروع هيعدي من غير ما الكاش يخلص. مساحة الوحدة بتتحط 150 م² وتتعدل هناك.", "Opens the cash-survival simulator pre-filled with the selected parcel (price per m², cost, timing, upfront land payment). Unit area is assumed 150 m²; adjust it there."],
  j_ok: ["نعم = الخيار ده بيحقق هامشك المستهدف.", "Yes = this option still meets your target margin."]
 };
 var tipEl = null, tipBtn = null;
@@ -308,8 +310,20 @@ function renderBreakdown(i) {
   C.breakOut.appendChild(el("div", { class: "kv" }, [
     kv(cM(r.max_bid), t("maxbid")), kv(ci(r.max_bid_per_m2), t("maxm2")), kv(r.irr_annual === null ? "–" : cp(r.irr_annual), t("irr")), kv(cM(r.gdv_today), "GDV")]));
   C.breakOut.appendChild(svg);
+  C.breakOut.appendChild(sendBox(d, r));
   var cashR = L.analyze(Object.assign({}, d, { land_mode: "cash" }));
   C.breakOut.appendChild(el("p", { class: "hint", style: "margin-top:8px" }, [t("static"), bdi(cM(r.static_residual)), " · ", t("timing"), bdi(cM(cashR.max_bid))]));
+}
+var SURVIVAL_URL = "https://islamelsabahy.github.io/developer-cashflow-survival/";
+function sendBox(d, r) {
+  var price = d.asking_price > 0 ? d.asking_price : r.max_bid, up = d.land_mode === "cash" ? price : price * d.land_down, UA = 150;
+  var units = Math.max(1, Math.round(r.sellable / UA)), q = {
+    from: "ldl", price_m2: Math.round(d.price_sqm), area: UA, units: units, budget: +(r.bua * d.cost_sqm * (1 + d.soft_pct + d.contingency_pct) / 1e6).toFixed(1),
+    months: Math.min(120, d.start_delay + d.build), down: +(d.plan_down * 100).toFixed(2), term: d.plan_months, overhead: +(d.overhead_m / 1e6).toFixed(2),
+    velocity: +(units / d.sales_months).toFixed(2), land: +(up / 1e6).toFixed(1), growth: +(d.price_growth * 100).toFixed(2), infl: +(d.cost_infl / 12).toFixed(4) };
+  var qs = Object.keys(q).map(function (k) { return k + "=" + encodeURIComponent(q[k]); }).join("&");
+  var a = el("a", { href: SURVIVAL_URL + "?" + qs, class: "btnlink", target: "_blank", rel: "noopener" }, [t("send")]);
+  return el("div", { class: "noprint", style: "margin-top:10px" }, [a, qbtn("send"), el("div", { class: "hint", style: "margin-top:4px" }, [t("send_note"), bdi(cM(price)), " (", d.asking_price > 0 ? t("send_ask") : t("send_max"), ")"])]);
 }
 function kv(v, label) { return el("div", {}, [el("b", {}, [bdi(String(v))]), el("span", { text: label })]); }
 
@@ -387,12 +401,20 @@ function chrome() {
   document.documentElement.lang = lang; document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   $("lang").textContent = lang === "ar" ? "EN" : "عربي";
   $("kick").textContent = t("kick"); $("ttl").textContent = t("ttl"); $("sub").textContent = t("sub"); $("warn").textContent = t("warn");
-  $("t_assume").textContent = t("assume"); $("h_assume").textContent = t("hassume"); $("reset").textContent = t("reset"); $("pdf").textContent = t("pdf"); $("foot").textContent = t("foot");
+  $("t_assume").textContent = t("assume"); $("h_assume").textContent = t("hassume"); $("reset").textContent = t("reset"); $("pdf").textContent = t("pdf"); $("xls").textContent = t("xls"); $("foot").textContent = t("foot");
   document.title = lang === "ar" ? "مختبر صفقات الأراضي" : "Land Deal Lab";
 }
 function init() { chrome(); buildFields(); buildMain(); render(); }
 $("lang").onclick = function () { lang = lang === "ar" ? "en" : "ar"; try { localStorage.setItem("ldl_lang", lang); } catch (e) {} init(); };
 $("reset").onclick = function () { resetG(); init(); };
+$("xls").onclick = function () {
+  try {
+    var bytes = LandLabXlsx.build(parcelParams(sel), { lang: lang }), blob = new Blob([bytes], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+    var a = document.createElement("a"), nm = (parcels[sel] && parcels[sel].name ? parcels[sel].name : "parcel").replace(/[^\w\-]+/g, "_");
+    a.href = URL.createObjectURL(blob); a.download = "land-deal-lab-" + nm + ".xlsx"; document.body.appendChild(a); a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  } catch (e) { $("pdf").title = e.message; }
+};
 var old;
 $("pdf").onclick = function () { old = document.title; document.title = "land-deal-lab-" + new Date().toISOString().slice(0, 10); window.print(); };
 window.addEventListener("afterprint", function () { if (old) document.title = old; });
