@@ -53,3 +53,8 @@ MIT licensed.
 - **الحساسية** وخريطة سعر البيع × تكلفة البناء، وتقرير PDF.
 
 **تنبيه:** أرقام افتراضية وهمية، للتعليم فقط، مش استشارة مالية أو قانونية أو تقييم عقاري.
+
+## Limitations
+- Demonstration tool built on **fictional sample data**. Outputs are decision support, not legal, tax or investment advice.
+- Results depend on the assumptions you enter; check them against your own numbers before relying on them.
+- Browser-only: nothing is sent to a server by this tool. See [SECURITY.md](SECURITY.md).
