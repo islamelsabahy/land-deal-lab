@@ -53,3 +53,8 @@ MIT licensed.
 - **الحساسية** وخريطة سعر البيع × تكلفة البناء، وتقرير PDF.
 
 **تنبيه:** أرقام افتراضية وهمية، للتعليم فقط، مش استشارة مالية أو قانونية أو تقييم عقاري.
+
+## Limitations
+- Demonstration tool built on **fictional sample data**. Outputs are decision support, not legal, tax or investment advice.
+- Results depend on the assumptions you enter; check them against your own numbers before relying on them.
+- Local by default: calculations run in your browser and nothing is sent to a server. The one exception is the **“Send to Cashflow Survival”** button: it opens the Cashflow Survival page with your sale price, budget, schedule and other assumptions in the link's query string, so they can appear in browser history and in that site's server logs. Use it only with figures you are comfortable sharing. Where a page offers an **optional AI mode**, turning it on sends the text/data you entered (and the computed results it needs) to `api.anthropic.com` using your own API key. Do not enable it with confidential customer, inventory or finance data. See [SECURITY.md](SECURITY.md).
